@@ -1,3 +1,21 @@
+[tool.poetry]
+name = "autocommit"
+version = "0.1.0"
+description = ""
+authors = ["Shreya Shankar <ss.shankar505@gmail.com>"]
+readme = "README.md"
+packages = [{include = "autocommit"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+openai = "^1.3.2"
+autohooks = "^23.10.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
 [tool.autohooks]
-mode = "script"
-pre-commit = "pre-commit-hook.sh"
+mode = "poetry"
+pre-commit = ["autocommit:precommit"]

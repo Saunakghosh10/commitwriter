@@ -24,8 +24,8 @@ add_documentation() {
 
 # Iterate over each staged file
 for file in $(git diff --cached --name-only); do
-    # Check if file has more than 10 lines
-    if [ $(wc -l < "$file") -gt 10 ]; then
+    # Check if file has more than 10 lines and it is a Python file
+    if [[ $(wc -l < "$file") -gt 10 && "$file" == *.py ]]; then
         add_documentation "$file"
     fi
 done
